@@ -1,0 +1,49 @@
+##############################################################
+# Mobile Application Programming (SCSJ3623)
+# Semester 2, 2019/2020
+##############################################################
+
+# REST API Server on Local Firebase
+//@baseUrl = http://localhost:5001/thefour-letitgo/us-central1/api
+
+# REST API Server on Live Firebase
+@baseUrl = https://us-central1-thefour-letitgo.cloudfunctions.net/api
+
+### Getting the list of todos
+GET {{baseUrl}}/products
+###  Getting a todo of given id
+GET {{baseUrl}}/products/8i3gECNZP7x7Aqvdc2CK
+
+###  Create a new todo
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+    "prodName" : "LV SPRING",
+    "brand": "LV", 
+    "prodPrice": 2000, 
+    "prodDesc": "This is LV Spring Collection", 
+    "prodCond": "NEW",
+    "completed": false,
+    "status" : "booked"
+}
+
+### Update the status of a given todo (whether is completed or not)
+PATCH {{baseUrl}}/products/1I9lZO7O1tubZp42tcsj
+Content-Type: application/json
+
+{
+    "completed":true
+}
+
+
+### Replace the entire fields of a given todo
+PUT {{baseUrl}}/products/1I9lZO7O1tubZp42tcsj
+Content-Type: application/json
+
+{
+    "completed": true
+}
+
+### Deleting a given todo
+DELETE {{baseUrl}}/products/1I9lZO7O1tubZp42tcsj
